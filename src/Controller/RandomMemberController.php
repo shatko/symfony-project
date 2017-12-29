@@ -13,26 +13,19 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class RandomMemberController extends Controller {
 
   /**
-  * @Route("/random-member")
+  * @Route("/random-member/{max}")
   */
 
-  public function randomNamePicker() {
+  public function randomNamePicker($max) {
 
     $memberContainer = array("Marin", "Matia", "Mihaela", "Mladen");
-
     $pickedMember = $memberContainer[ array_rand( $memberContainer ) ];
 
-
-    // return new Response(
-    //   '<html>
-    //     <body>
-    //       <h1>' . $pickedMember . '</h1>
-    //     </body>
-    //   </html>'
-    // );
+    $number = mt_rand(0, $max);
 
     return $this->render('random-member.html.twig', array(
       'pickedMember' => $pickedMember,
+      'number' => $number,
     ));
 
 
