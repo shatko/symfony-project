@@ -4,11 +4,15 @@
 namespace App\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 
-class RandomMemberController
-{
-  public function randomNamePicker()
-  {
+class RandomMemberController {
+
+  /**
+  * @Route("/random-member")
+  */
+
+  public function randomNamePicker() {
 
     $memberContainer = array("Marin", "Matia", "Mihaela", "Mladen");
 
